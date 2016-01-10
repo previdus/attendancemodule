@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+         <link rel="stylesheet" type="text/css" href="css/reset.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Hello World</title>
+    </head>
+    <body>
+        <div id="landmark-1" data-landmark-id="1">
+    <form>
+        <label for="email">
+            <b>Email</b>
+            <input type="email" id="email" name="email">
+        </label>
+        <label for="comment">
+            <b>Comment--</b>
+            <textarea id="comment" name="comment" cols="30" rows="10"></textarea>
+        </label>
+        <input type="submit" value="Save">
+    </form>
+</div>
+<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+<script>
+		
+			$('form').submit(function(){
+			
+			var landmarkID = $(this).parent().attr('data-landmark-id');
+			var postData = $(this).serialize();
+	
+			$.ajax({
+				type: 'GET',
+				url: 'http://default-environment-qkywuy2euq.elasticbeanstalk.com/api/content/questions/search?questionId=187',
+				success: function(data){
+				console.log(data);
+				alert('Your comment was successfully added');
+				loadPage('index1.html');
+				},
+				error: function(){
+					console.log(data);
+					alert('There was an error adding your comment');
+					}
+				});
+				return false;
+				});
+				
+				function loadPage(url) {
+					 window.location = url;
+				}
+		</script>
+		
+        <script type="text/javascript" src="js/index.js"></script>
+		
+		
+    </body>
+</html>
