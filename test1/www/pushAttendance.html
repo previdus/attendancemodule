@@ -5,7 +5,7 @@
    <meta name="viewport" content="width=default-width; user-scalable=no" />
    <meta http-equiv="Content-type" content="text/html;charset=utf-8">
 
-   <title>Welcome Screen</title>
+   <title>Push Attendance Screen</title>
 
     <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
@@ -14,17 +14,12 @@
 
 <body onload="init()">
 
-<h1>Your Groups</h1>
+<h1>Push Data</h1>
 
-<input type="button" value="Pull Data" onClick="PullData()"> <br>
-<input type="button" value="List Group" onClick="ListGroups()"> <br>
 <input type="button" value="Push Attendance" onClick="PushAttendance()"> <br>
-<span id="groups"></span>
-<div id="loggedInUser"></div>
+<div id="attendanceList"></div>
+<div id="attendanceData"></div>
 
-<div id="coachGroups"></div>
-
-<div id="groupStudents"></div>
 <div id="loggedInUserDiv">
 <label for="userName">
 		<b>User Name</b>
@@ -39,16 +34,11 @@
 		<input type="apiKey" id="apiKey" name="apiKey" value="1234">
 	</label>	
 </div>
-<div id="dateDiv">
-	<label for="selectedDate">
-		<b>Selected Date</b>
-		<input type="selectedDate" id="selectedDate" name="selectedDate" value="12/11/2015">
-	</label>
-</div>
 
 
-	<script type="text/javascript" src="js/pullData.js"></script>
-	<script type="text/javascript" src="js/student-group-data.js"></script>
+
+	<script type="text/javascript" src="js/pushData.js"></script>
+	<script type="text/javascript" src="js/attendance-push-db.js"></script>
 
 </body>
 </html> 
