@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/reset.css" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
-		<script type="text/javascript" src="phonegap.js"></script>
-		
-        <title>Login Page</title>
-    </head>
-    <body onload="init()">
-		<form>
-			<label for="username">
-				<b>Username</b>
-				<input type="username" id="username" name="username" value="coach1">
-			</label><br>
-			<label for="password">
-				<b>Password</b>
-				<input id="password" name="password" value="sample">
-			</label>
-			<input type="submit" value="Save">
-		</form>
-		<div id="loggedInUser"></div>
-		
-        <script type="text/javascript" src="js/login.js"></script>
-		 <script type="text/javascript" src="js/login-db.js"></script>
-    </body>
+<head>
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+	<title>Login</title>
+</head>
+<body onload="init()">
+	<div data-role="page" class="login-body">
+		<div data-role="main" class="ui-content">
+			<form>
+				<div class="no-corner">
+					<label for="username">Username</label>
+					<input type="text" id="username" name="username">
+				</div>
+				<div class="no-corner">
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password">
+				</div>
+				<div class="no-corner">
+					<input type="submit" value="SAVE">
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="js/login-db.js"></script>
+</body>
 </html>

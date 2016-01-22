@@ -59,11 +59,11 @@ function init() {
 	document.addEventListener("deviceready", deviceReady, true);
 	delete init;
 	initDB();
-	extractLoggedInUserData();
+	//extractLoggedInUserData();
 }
 
 function getPullDataUrl(){
-  return ' http://websites.avyay.co.in/sms-demo/api/fetch-data.php?api_key=1234';
+  return ' http://websites.avyay.co.in/sms-demo/api/fetch-data.php?api_key=1453463025';
  
 }
 

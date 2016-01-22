@@ -1,0 +1,7 @@
+.login-body{
+	background: #F00;
+}
+.no-corner .ui-corner-all {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
