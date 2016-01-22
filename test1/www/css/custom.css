@@ -1,7 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+body, .ui-btn{
+	background: #FFF;
+	font-family: 'Roboto', sans-serif !important;
+}
+
 .login-body{
-	background: #F00;
+	background: #FFF;
+	color: #000;
+	
+	text-shadow: none;
+}
+.login-body .ui-content{
+	/*padding: 0;*/
 }
 .no-corner .ui-corner-all {
     -webkit-border-radius: 0;
     border-radius: 0;
+}
+.logo{
+	max-width: 200px;
+	text-align: center;
+	margin: 30px auto
+}
+.logo img{
+	width: 100%;
+	height: auto;
+}
+.login-form{
+	margin-top: 4em;
+}
+.no-corner .ui-input-text, .ui-input-search{
+	margin: 0;
+}
+.no-corner .ui-shadow-inset{
+	-webkit-box-shadow: none; 
+    -moz-box-shadow: none;
+     box-shadow: none;
+     border:0;
+     padding: 0.2em 0;
+	border-bottom: 1px solid #999;
+	margin-bottom: 1em;
+
+}
+.no-corner .ui-btn, .no-corner .ui-btn:hover{
+	   margin: 50px;
+        background: #50d2c2;
+    color: #fff;
+    font-weight: 300;
+    text-shadow: none;
+    border: 0;
+    padding: 1em 1em;
+}
+.no-corner label{
+	color: #999;
+	font-size: 0.8em;
+}
+.no-corner .ui-input-text input{
+	padding: .4em 0;
+}
+.no-corner .ui-btn:focus, .no-corner .ui-focus{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
 }

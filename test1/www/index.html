@@ -3,16 +3,20 @@
 <head>
 	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/custom.css" />
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
 	<title>Login</title>
 </head>
 <body onload="init()">
 	<div data-role="page" class="login-body">
 		<div data-role="main" class="ui-content">
-			<form>
-				<div class="no-corner">
+			<div class="logo">
+				<img src="img/LogoImg.png">
+			</div>
+			<form class="login-form">
+				<div class="no-corner" >
 					<label for="username">Username</label>
 					<input type="text" id="username" name="username">
 				</div>
@@ -21,7 +25,7 @@
 					<input type="password" id="password" name="password">
 				</div>
 				<div class="no-corner">
-					<input type="submit" value="SAVE">
+					<input type="submit" value="Sign In">
 				</div>
 			</form>
 		</div>
