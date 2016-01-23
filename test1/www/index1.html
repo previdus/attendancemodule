@@ -15,7 +15,12 @@
 
 <body onload="init()">
 <div data-role="header" data-position="fixed" data-theme="b">
-	<div id="welcome"> </div>
+	<div data-role="navbar">
+		<ul>
+			<li><a href="a.html" class="ui-btn-active ui-state-persist"><div id="welcome"> </div></a></li>
+			<li><a href="b.html">Logout</a></li>
+		</ul>
+	</div>
 	
 </div>
 
@@ -47,12 +52,14 @@
 <div id="coachGroups"></div>
 <div id="groupStudents"></div>
 	
-	<div data-role="footer" data-position="fixed" class="ui-bar" data-theme="b">
-	
-	<input type="button" value="Mark" data-icon="plus" onClick="PushAttendance()"> 
-	<input type="button" value="Pull" data-icon="arrow-d" onClick="pullGroupAndStudentDataFromServer()"> 
-	<input type="button" value="Push" data-icon="arrow-u" onClick="PushAttendance()"> 
-	<input type="button" value="Logout" onClick="logout()"> 
+	<div data-role="footer" data-position="fixed" data-fullscreen="true"  data-theme="b">
+	<div data-role="navbar">
+	<ul>
+	<li><input type="button" value="Mark" data-icon="plus" onClick=""> </li>
+	<li><input type="button" value="Pull" data-icon="arrow-d" onClick="pullGroupAndStudentDataFromServer()"> </li>
+	<li><input type="button" value="Push" data-icon="arrow-u" onClick="PushAttendance()"> </li>
+	</div>
+	</ul>
 	</div>
 	<script type="text/javascript" src="js/base.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
