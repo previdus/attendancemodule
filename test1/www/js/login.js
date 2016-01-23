@@ -10,14 +10,13 @@ $('form').submit(function(){
 		success: function(data){
 			var obj = JSON.parse(data);
 			if(obj.success){
-				login(obj.user_id, obj.name, obj.apiKey, userName, password);
+				insertLoginDetailsInDB(obj.user_id, obj.name, obj.apiKey, userName, password);
 			} else {
 				alert(obj.message);
 			}
 		},
 		error: function(){
-			console.log(data);
-			alert('There was an error adding your comment');
+			loginOffline(userName, password);
 			}
 		});
 	return false;

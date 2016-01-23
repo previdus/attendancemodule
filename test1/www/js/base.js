@@ -16,7 +16,7 @@ function errorHandler(transaction, error) {
 }
 
 function nullHandler(){
-
+  // this is a call back method which does nothing.
 };
 
 function getUrls(type){
@@ -24,13 +24,19 @@ function getUrls(type){
 
 	if(type == 'login'){
 		return str_api + 'login-exec.php';
-	} else {
-
+	} 
+	else if(type == 'pullGrpAndStudentData'){
+		return str_api + 'fetch-data.php';
+	}else{
 	}
 }
 
 function loadPage(url) {
 	 window.location = url;
+}
+
+function logoutRedirect(){
+	loadPage('index.html');
 }
 
 $(document).bind('mobileinit',function(){

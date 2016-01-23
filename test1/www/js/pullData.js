@@ -1,28 +1,28 @@
-function PullData(){
-	var pullDataUrl = getPullDataUrl();
+function pullGroupAndStudentDataFromServer(){
+	var pullDataUrl = getUrls('pullGrpAndStudentData');
+	
+	var apiKey = $('#apiKey').val();
+	var getData = "{api_key:'" + apiKey + "'}"; 
+	pullDataUrl = pullDataUrl + '?api_key=' + apiKey;
+	
 	$.ajax({
 		type: 'GET',
 		url: pullDataUrl,
 		success: function(data){
 		console.log(data);
 		var obj = JSON.parse(data);
-		
-		saveData(obj);
-		alert('Data saved successfully');		
-		//window.location = "index1.html";
+		saveGroupAndStudentDataFromServerToLocalDB(obj);		
 	},
 	error: function(){
 		console.log(data);
-		alert('There was an error adding your comment');
+		alert('Please check your network connection!');
 		}
 	});
 	return false;
 }
 
 function selectedGroup(){
-  
   var selected = $('#select-choice-group').val();
-	alert(' Selected group is ' + selected);
 	displayStudents(selected);
   }
 
@@ -35,16 +35,16 @@ function addAttendance(){
             $.each($("input[name='selectedStudent']:checked"), function(){            
                 presentList.push($(this).val());
             });
-            alert("Students present are: " + presentList.join(", "));		
+            alert("Students present are: " + presentList.join(","));		
 	var nonPresentList = [];
             $.each($("input[name='selectedStudent']:not(:checked)"), function(){            
                 nonPresentList.push($(this).val());
             });
-            alert("Students absent are: " + nonPresentList.join(", "));
+            alert("Students absent are: " + nonPresentList.join(","));
 	var selectedGroup = $('#select-choice-group').val();
 	var date = $('#selectedDate').val();
 	var userId = $('#userId').val();
-			saveAttendance(selectedGroup, userId, date, presentList,nonPresentList);
+	saveAttendance(selectedGroup, userId, date, presentList,nonPresentList);
 }
 	
 function PushAttendance(){
@@ -55,16 +55,9 @@ function loadPage(url) {
 }
 
 function init() {
-     
 	document.addEventListener("deviceready", deviceReady, true);
 	delete init;
 	initDB();
-	//extractLoggedInUserData();
-}
-
-function getPullDataUrl(){
-  return ' http://websites.avyay.co.in/sms-demo/api/fetch-data.php?api_key=1453463025';
- 
 }
 
 function deviceReady() {

@@ -7,29 +7,24 @@
 
    <title>Welcome Screen</title>
        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 	
 </head>
 
 <body onload="init()">
+<div id="welcome"> </div>
 
-<h1>Your Groups</h1>
-
-<input type="button" value="Pull Data" onClick="PullData()"> <br>
-<input type="button" value="List Group" onClick="ListGroups()"> <br>
-<input type="button" value="Push Attendance" onClick="PushAttendance()"> <br>
 <span id="groups"></span>
 <div id="loggedInUser"></div>
 
-<div id="coachGroups"></div>
 
-<div id="groupStudents"></div>
-<div id="loggedInUserDiv">
+<div id="loggedInUserDiv" style="display:none">
 <label for="userName">
 		<b>User Name</b>
 		<input type="userName" id="userName" name="userName" value="">
-	</label>
+</label>
 <label for="userId">
 		<b>UserId</b>
 		<input type="userId" id="userId" name="userId" value="">
@@ -45,11 +40,14 @@
 		<input type="selectedDate" id="selectedDate" name="selectedDate" value="12/11/2015">
 	</label>
 </div>
-
-
-
+<div id="coachGroups"></div>
+<div id="groupStudents"></div>
+	<input type="button" value="Push Attendance" onClick="PushAttendance()"> <br>
+	<input type="button" value="Pull Data" onClick="pullGroupAndStudentDataFromServer()"> <br>
+	<input type="button" value="Logout" onClick="logout()"> <br>
+	<script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="js/pullData.js"></script>
-	<script type="text/javascript" src="js/student-group-data.js"></script>
-
-</body>
+	<script type="text/javascript" src="js/student-group-db.js"></script>
+	</body>
 </html> 
