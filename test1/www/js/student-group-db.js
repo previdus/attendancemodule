@@ -2,26 +2,6 @@ function initDB(){
 	extractLoggedInUserData();
 }
 
-function extractLoggedInUserData() {
- db.transaction(function(transaction) {
-   transaction.executeSql('select * from m_loggedin_user limit 1;', [],
-     function(transaction, result) {
-      if (result != null && result.rows != null) {
-        for (var i = 0; i < result.rows.length; i++) {
-           var row = result.rows.item(i);
-			$('#welcome').html("<h1> Welcome " + row.name + "</h1>");
-			$('#userId').val(row.id);
-			$('#apiKey').val(row.api_key);
-			$('#userName').val(row.name);
-        }
-      }else{
-	    logoutRedirect();
-	  }
-     },errorHandler);
- },errorHandler,loadGroupAndStudentDataOnFirstLogin);
- return;
-}
-
 function loadGroupAndStudentDataOnFirstLogin() {
 	db.transaction(function(transaction) {
 		transaction.executeSql('select * from m_groups where user_id = ? limit 1;', [$('#userId').val()],
@@ -124,9 +104,3 @@ function saveAttendance(group_id, userId, date, present_list,absent_list){
 return false;
 }
 
-function logout(){
-	db.transaction(function(transaction) { 
-			transaction.executeSql('delete from m_loggedin_user;',[],nullHandler,errorHandler);	 
-	},errorHandler,logoutRedirect);
-return false;
-}
