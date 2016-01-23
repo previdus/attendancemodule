@@ -14,7 +14,11 @@
 </head>
 
 <body onload="init()">
-<div id="welcome"> </div>
+<div data-role="header" data-position="fixed" data-theme="b">
+	<div id="welcome"> </div>
+	
+</div>
+
 
 <span id="groups"></span>
 <div id="loggedInUser"></div>
@@ -42,9 +46,14 @@
 </div>
 <div id="coachGroups"></div>
 <div id="groupStudents"></div>
-	<input type="button" value="Push Attendance" onClick="PushAttendance()"> <br>
-	<input type="button" value="Pull Data" onClick="pullGroupAndStudentDataFromServer()"> <br>
-	<input type="button" value="Logout" onClick="logout()"> <br>
+	
+	<div data-role="footer" data-position="fixed" class="ui-bar" data-theme="b">
+	
+	<input type="button" value="Mark" data-icon="plus" onClick="PushAttendance()"> 
+	<input type="button" value="Pull" data-icon="arrow-d" onClick="pullGroupAndStudentDataFromServer()"> 
+	<input type="button" value="Push" data-icon="arrow-u" onClick="PushAttendance()"> 
+	<input type="button" value="Logout" onClick="logout()"> 
+	</div>
 	<script type="text/javascript" src="js/base.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="js/pullData.js"></script>
