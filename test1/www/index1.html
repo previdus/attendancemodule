@@ -1,69 +1,83 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
+	"http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-   <meta name="viewport" content="width=default-width; user-scalable=no" />
-   <meta http-equiv="Content-type" content="text/html;charset=utf-8">
-
-   <title>Welcome Screen</title>
-       <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
-	
-</head>
+	<head>
+		<meta name="viewport" content="width=default-width; user-scalable=no" />
+		<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+	    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<title>Login</title>
+			
+	</head>
 
 <body onload="init()">
-<div data-role="header" data-position="fixed" data-theme="b">
-	<div data-role="navbar">
-		<ul>
-			<li><a href="a.html" class="ui-btn-active ui-state-persist"><div id="welcome"> </div></a></li>
-			<li><a href="b.html">Logout</a></li>
-		</ul>
+	<span id="groups"></span>
+	<div id="loggedInUser"></div>
+
+
+	<div id="loggedInUserDiv" style="display:none">
+		<label for="userName">
+			<b>User Name</b>
+			<input type="userName" id="userName" name="userName" value="">
+		</label>
+		<label for="userId">
+			<b>UserId</b>
+			<input type="userId" id="userId" name="userId" value="">
+		</label>
+		<label for="apiKey">
+			<b>API KEY</b>
+			<input type="apiKey" id="apiKey" name="apiKey" value="">
+		</label>	
+	</div>
+	<div id="dateDiv" style="display:none">
+		<label for="selectedDate">
+			<b>Selected Date</b>
+			<input type="selectedDate" id="selectedDate" name="selectedDate" value="12/11/2015">
+		</label>
+	</div>
+
+	<div data-role="page" id="page1">
+		<div data-role="header" data-id="main-header" class="header" data-enhance="false"></div>
+
+		<div data-role="main" class="main-body" data-enhance="false">
+			<div id="coachGroups" class="data-div"></div>
+		</div>
+			<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed"></div>
+	</div>
+
+	<div data-role="page" id="page2">
+		<div data-role="header" data-id="main-header" class="header" data-enhance="false"></div>
+
+		<div data-role="main" class="main-body" data-enhance="false">
+			<div id="groupStudents" class="data-div"></div>
+		</div>
+			<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed"></div>
 	</div>
 	
-</div>
 
 
-<span id="groups"></span>
-<div id="loggedInUser"></div>
 
 
-<div id="loggedInUserDiv" style="display:none">
-<label for="userName">
-		<b>User Name</b>
-		<input type="userName" id="userName" name="userName" value="">
-</label>
-<label for="userId">
-		<b>UserId</b>
-		<input type="userId" id="userId" name="userId" value="">
-	</label>
-<label for="apiKey">
-		<b>API KEY</b>
-		<input type="apiKey" id="apiKey" name="apiKey" value="">
-	</label>	
-</div>
-<div id="dateDiv">
-	<label for="selectedDate">
-		<b>Selected Date</b>
-		<input type="selectedDate" id="selectedDate" name="selectedDate" value="12/11/2015">
-	</label>
-</div>
-<div id="coachGroups"></div>
-<div id="groupStudents"></div>
-	
-	<div data-role="footer" data-position="fixed" data-fullscreen="true"  data-theme="b">
-	<div data-role="navbar">
-	<ul>
-	<li><input type="button" value="Mark" data-icon="plus" onClick=""> </li>
-	<li><input type="button" value="Pull" data-icon="arrow-d" onClick="pullGroupAndStudentDataFromServer()"> </li>
-	<li><input type="button" value="Push" data-icon="arrow-u" onClick="PushAttendance()"> </li>
-	</div>
-	</ul>
-	</div>
+
+
+	<script type="text/javascript">
+		var header = '<div class="top-header"><div id="welcome">&nbsp;</div><div class="logout"><a href="#" onClick="logout()" ><img src="img/logout.png" style="width:20px; height:auto; margin-top:13px"></a></div><div style="clear:both"></div></div>';
+		$(".header").html(header);
+		var footer = '<div data-role="navbar"><ul><li><input type="button" value="Mark" data-icon="plus" onClick=""> </li><li><input type="button" value="Pull" data-icon="arrow-d" onClick="pullGroupAndStudentDataFromServer()"> </li><li><input type="button" value="Push" data-icon="arrow-u" onClick="PushAttendance()"> </li></ul></div>';
+		$(".footer").html(footer);
+
+	</script>
 	<script type="text/javascript" src="js/base.js"></script>
+	<script>
+        $(document).on('mobileinit', function () {
+            $.mobile.ignoreContentEnabled = true;
+        });
+    </script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="js/pullData.js"></script>
 	<script type="text/javascript" src="js/student-group-db.js"></script>
-	</body>
+</body>
 </html> 

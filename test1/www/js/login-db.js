@@ -14,9 +14,9 @@ function resetDB(){
 }
 
 function resetSuccess(){
-    alert('DB was reset successfully');
+	$(".cancel-btn a").trigger('click');
+    alert('App is successfully reset ');
 	initDB();
-   
 }
 
 function initDB(){

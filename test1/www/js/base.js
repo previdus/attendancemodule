@@ -47,9 +47,9 @@ function logoutRedirect(){
 }
 
 $(document).bind('mobileinit',function(){
-    $.mobile.changePage.defaults.changeHash = false;
-    $.mobile.hashListeningEnabled = false;
-    $.mobile.pushStateEnabled = false;
+    // $.mobile.changePage.defaults.changeHash = false;
+    // $.mobile.hashListeningEnabled = false;
+    // $.mobile.pushStateEnabled = false;
 });
 
 function extractLoggedInUserData() {
@@ -59,7 +59,7 @@ function extractLoggedInUserData() {
       if (result != null && result.rows != null) {
         for (var i = 0; i < result.rows.length; i++) {
            var row = result.rows.item(i);
-			$('#welcome').html("<h1> Welcome " + row.name + "</h1>");
+			$('#welcome').html("<h1>" + row.name + "</h1>");
 			$('#userId').val(row.id);
 			$('#apiKey').val(row.api_key);
 			$('#userName').val(row.name);
@@ -71,3 +71,4 @@ function extractLoggedInUserData() {
  },errorHandler,loadGroupAndStudentDataOnFirstLogin);
  return;
 }
+

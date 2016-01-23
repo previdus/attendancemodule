@@ -1,9 +1,13 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500);
 body, .ui-btn{
 	background: #FFF;
 	font-family: 'Roboto', sans-serif !important;
+	font-weight: 300;
 }
-
+.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit{
+	text-shadow:none;
+	font-weight: 400;
+}
 .login-body{
 	background: #FFF;
 	color: #000;
@@ -43,13 +47,39 @@ body, .ui-btn{
 
 }
 .no-corner .ui-btn, .no-corner .ui-btn:hover{
-	   margin: 50px;
-        background: #50d2c2;
+	margin: 50px;
+    background: #50d2c2;
     color: #fff;
     font-weight: 300;
     text-shadow: none;
     border: 0;
     padding: 1em 1em;
+}
+.no-corner.red .ui-btn, .no-corner.red .ui-btn:hover{
+	background: #F00;
+}
+.no-corner.default .ui-btn, .no-corner.default .ui-btn:hover{
+	background: #888;
+}
+.cancel-btn{
+	background: #888;
+	text-align: center;
+	margin-top: 10px;
+	color: #FFF;
+	text-shadow:none;
+}
+.cancel-btn a{
+	padding: 20px 0;
+	display: block;
+	text-decoration: none;
+}
+.no-corner.marLR0 .ui-btn{
+	margin-right: 0;
+	margin-left: 0;
+}
+.no-corner.marTB10 .ui-btn{
+	margin-top: 10px;
+	margin-bottom: 0;
 }
 .no-corner label{
 	color: #999;
@@ -62,4 +92,90 @@ body, .ui-btn{
 	box-shadow: none;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
+}
+
+.reset-data{
+	color: #AAA;
+	text-align: center;
+}
+a{
+	color: inherit !important;
+	    font-weight: inherit !important;
+}
+#rand-num{
+	font-size: 50px;
+    color: #50d2c2;
+    text-align: center;
+    font-weight: 500;
+}
+.ui-page, .ui-content.white-back{
+	background: #FFF;
+}
+.martop30{
+	margin-top: 30px;
+}
+.martop50{
+	margin-top: 50px;
+}
+.cntr{
+	text-align: center;
+}
+.reset-btn{
+	padding: 20px 40px;
+	background: #f00 !important;
+}
+.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited{
+	text-shadow:none;
+	border: none;
+	color: #FFF;
+}
+.header{
+	background-color: #50d2c2;
+	color: #FFF;
+	    font-weight: 500;
+	    padding-top: 3px;
+	    padding-bottom: 3px;
+	    position: fixed;
+	    width: 100%;
+	z-index: 999;
+
+}
+.header .top-header{
+		padding-right: 10px;
+	padding-left: 10px;
+	height: 46px;
+}
+
+div#welcome{
+	float: left;
+	padding: 15px 0;
+	text-shadow:none;
+	text-transform: uppercase;
+	display: inline-block;
+}
+.logout{
+	float: right;
+}
+.main-body{
+	margin-top: 46px;
+	padding: 20px 10px;
+}
+h1.title{
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 2em;
+}
+ul.gen-list{
+	list-style: none;
+}
+ul.gen-list li{
+	padding: 20px 10px;
+	text-transform: uppercase;
+}
+ul.gen-list li a{
+	text-decoration: none;
+	display: block;
+}
+ul.gen-list li:nth-child(even){
+	background: #EEE;
 }

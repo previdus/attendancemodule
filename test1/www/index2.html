@@ -1,88 +1,70 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
-"http://www.w3.org/TR/html4/strict.dtd">
+	"http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-   <meta name="viewport" content="width=default-width; user-scalable=no" />
-   <meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<head>
+		<meta name="viewport" content="width=default-width; user-scalable=no" />
+		<meta http-equiv="Content-type" content="text/html;charset=utf-8">
 
-   <title>Welcome Screen</title>
-
-    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
-	
-</head>
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+	    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="js/base.js"></script>
+	    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<title>Login</title>
+			
+	</head>
 
 <body onload="init()">
+	<div data-role="header" data-position="fixed" data-theme="b">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="a.html" class="ui-btn-active ui-state-persist"><div id="welcome"> </div></a></li>
+				<li><a href="#" onClick="logout()" >Logout</a></li>
+			</ul>
+		</div>
 
-<h1>Your Groups</h1>
-
-<input type="button" value="Pull Data" onClick="PullData()"> <br>
-<input type="button" value="List Group" onClick="ListGroups()"> <br>
-<input type="button" value="Push Attendance" onClick="PushAttendance()"> <br>
-<span id="groups"></span>
-<div id="loggedInUser"></div>
-
-<div id="coachGroups"></div>
-
-<div id="groupStudents"></div>
-<div id="loggedInUserDiv">
-<label for="userName">
-		<b>User Name</b>
-		<input type="userName" id="userName" name="userName" value="">
-	</label>
-<label for="userId">
-		<b>UserId</b>
-		<input type="userId" id="userId" name="userId" value="">
-	</label>
-<label for="apiKey">
-		<b>API KEY</b>
-		<input type="apiKey" id="apiKey" name="apiKey" value="">
-	</label>	
-</div>
-<div id="dateDiv">
-	<label for="selectedDate">
-		<b>Selected Date</b>
-		<input type="selectedDate" id="selectedDate" name="selectedDate" value="12/11/2015">
-	</label>
-</div>
-
-<script type="text/javascript">
-var db;
-var shortName = 'WebSqlDB';
-var version = '1.0';
-var displayName = 'WebSqlDB';
-var maxSize = 65535;
-
-// this is called when an error happens in a transaction
-function errorHandler(transaction, error) {
-   alert('Error: ' + error.message + ' code: ' + error.code);
-}
-// this is called when a successful transaction happens
-function successCallBack() {
-   alert("DEBUGGING: success");
-}
-function nullHandler(){alert('nulli')};
+	</div>
 
 
-function init () {
-	db = openDatabase(shortName, version, displayName,maxSize);
-	 db.transaction(function(transaction) {
-	   transaction.executeSql('select * from m_loggedin_user limit 1;', [],
-	     function(transaction, result) {
-	      if (result != null && result.rows != null) {
-	        for (var i = 0; i < result.rows.length; i++) {
-	           var row = result.rows.item(i);
-				$('#userId').val(row.id);
-				$('#apiKey').val(row.api_key);
-				$('#userName').val(row.name);
-	           alert(row.id + ' ' + row.name + ' ' + row.api_key);
-	        }
-	      }else{alert(result);}
-	     },errorHandler);
-	 },errorHandler,nullHandler);
-}
+	<span id="groups"></span>
+	<div id="loggedInUser"></div>
 
-</script>
 
+	<div id="loggedInUserDiv" style="display:none">
+		<label for="userName">
+			<b>User Name</b>
+			<input type="userName" id="userName" name="userName" value="">
+		</label>
+		<label for="userId">
+			<b>UserId</b>
+			<input type="userId" id="userId" name="userId" value="">
+		</label>
+		<label for="apiKey">
+			<b>API KEY</b>
+			<input type="apiKey" id="apiKey" name="apiKey" value="">
+		</label>	
+	</div>
+	<div id="dateDiv">
+		<label for="selectedDate">
+			<b>Selected Date</b>
+			<input type="selectedDate" id="selectedDate" name="selectedDate" value="12/11/2015">
+		</label>
+	</div>
+	<div id="coachGroups"></div>
+	<div id="groupStudents"></div>
+	
+	<div data-role="footer" data-position="fixed" data-fullscreen="false"  data-theme="b">
+		<div data-role="navbar">
+			<ul>
+				<li><input type="button" value="Mark" data-icon="plus" onClick=""> </li>
+				<li><input type="button" value="Pull" data-icon="arrow-d" onClick="pullGroupAndStudentDataFromServer()"> </li>
+				<li><input type="button" value="Push" data-icon="arrow-u" onClick="PushAttendance()"> </li>
+			</div>
+		</ul>
+	</div>
+	<script type="text/javascript" src="js/pullData.js"></script>
+	<script type="text/javascript" src="js/student-group-db.js"></script>
 </body>
 </html> 

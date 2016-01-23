@@ -47,28 +47,54 @@ function saveGroupAndStudentData(dataObj, userId){
 return false;
 }
 
+// function displayGroups(){
+//  db.transaction(function(transaction) {
+//    var groupDataHtml = "<div data-role='fieldcontain'>";
+// 	groupDataHtml = groupDataHtml + "<label for='select-choice-group' class='select'>Select Group:</label>";
+// 	groupDataHtml = groupDataHtml + "<select name='select-choice-group' id='select-choice-group'>";	
+//     transaction.executeSql('select grp.group_id as group_id, grp.name as name from m_groups grp, m_loggedin_user loginusr where loginusr.id = grp.user_id;', [],
+//      function(transaction, result) {
+//       if (result != null && result.rows != null) {
+//         for (var i = 0; i < result.rows.length; i++) {
+//            var row = result.rows.item(i);
+// 		   groupDataHtml = groupDataHtml + '<option value="' + row.group_id + '">' + row.name + '</option>';
+//         }
+// 		groupDataHtml = groupDataHtml + "</select> </div>";
+// 		groupDataHtml = groupDataHtml + "<input type='button' value='List Students' onClick='selectedGroup()'> <br>";
+// 		 // $('#coachGroups').html('');
+// 		 // $('#coachGroups').append('<br>' + groupDataHtml);
+//       }
+//      },errorHandler);
+//  },errorHandler,nullHandler);
+//  return;
+// }
+
 function displayGroups(){
  db.transaction(function(transaction) {
-   var groupDataHtml = "<div data-role='fieldcontain'>";
-	groupDataHtml = groupDataHtml + "<label for='select-choice-group' class='select'>Select Group:</label>";
-	groupDataHtml = groupDataHtml + "<select name='select-choice-group' id='select-choice-group'>";	
+   
     transaction.executeSql('select grp.group_id as group_id, grp.name as name from m_groups grp, m_loggedin_user loginusr where loginusr.id = grp.user_id;', [],
      function(transaction, result) {
       if (result != null && result.rows != null) {
-        for (var i = 0; i < result.rows.length; i++) {
-           var row = result.rows.item(i);
-		   groupDataHtml = groupDataHtml + '<option value="' + row.group_id + '">' + row.name + '</option>';
-        }
-		groupDataHtml = groupDataHtml + "</select> </div>";
-		groupDataHtml = groupDataHtml + "<input type='button' value='List Students' onClick='selectedGroup()'> <br>";
+
+      	if(result.rows.length != 0){
+      		var groupDataHtml = '<h1 class="title select-group">Select Group</h1><ul class="gen-list">';
+      		for (var i = 0; i < result.rows.length; i++) {
+	           var row = result.rows.item(i);
+			   groupDataHtml = groupDataHtml + '<li><a href="#" onClick="selectedGroup('+ row.group_id +')"> ' + row.name + '</a></li>';
+	        }
+			groupDataHtml = groupDataHtml + "</ul>";
+      	} else {
+      		var groupDataHtml = '<h1 class="title select-group">No Groups Available</h1>';
+      	}
+        
 		 $('#coachGroups').html('');
-		 $('#coachGroups').append('<br>' + groupDataHtml);
+		 $('#coachGroups').append(groupDataHtml);
       }
+
      },errorHandler);
  },errorHandler,nullHandler);
  return;
 }
-
 
 function displayStudents(group_id){
  db.transaction(function(transaction) {
@@ -86,7 +112,7 @@ function displayStudents(group_id){
         }
 		groupDataHtml = groupDataHtml + "</fieldset>";
 		groupDataHtml = groupDataHtml + "<input type='button' value='Add Attendance' onClick='addAttendance()'> <br>";
-		 $('#groupStudents').html('');
+		$.mobile.changePage( "#page2", { transition: "pop"});
 		 $('#groupStudents').append('<br>' + groupDataHtml);
 		 
       }

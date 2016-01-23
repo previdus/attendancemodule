@@ -21,8 +21,8 @@ function pullGroupAndStudentDataFromServer(){
 	return false;
 }
 
-function selectedGroup(){
-  var selected = $('#select-choice-group').val();
+function selectedGroup(selected){
+	alert(selected);
 	displayStudents(selected);
   }
 
