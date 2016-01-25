@@ -17,7 +17,7 @@ function errorHandler(transaction, error) {
 
 function nullHandler(){
   // this is a call back method which does nothing.
-};
+}
 
 function getUrls(type){
 	var str_api = 'http://websites.avyay.co.in/sms-demo/api/';
@@ -27,7 +27,6 @@ function getUrls(type){
 	} 
 	else if(type == 'pullGrpAndStudentData'){
 		return str_api + 'fetch-data.php';
-	}else{
 	}
 }
 
@@ -52,23 +51,5 @@ $(document).bind('mobileinit',function(){
     // $.mobile.pushStateEnabled = false;
 });
 
-function extractLoggedInUserData() {
- db.transaction(function(transaction) {
-   transaction.executeSql('select * from m_loggedin_user limit 1;', [],
-     function(transaction, result) {
-      if (result != null && result.rows != null) {
-        for (var i = 0; i < result.rows.length; i++) {
-           var row = result.rows.item(i);
-			$('#welcome').html("<h1>" + row.name + "</h1>");
-			$('#userId').val(row.id);
-			$('#apiKey').val(row.api_key);
-			$('#userName').val(row.name);
-        }
-      }else{
-	    logoutRedirect();
-	  }
-     },errorHandler);
- },errorHandler,loadGroupAndStudentDataOnFirstLogin);
- return;
-}
+
 
