@@ -17,7 +17,6 @@
 	<span id="groups"></span>
 	<div id="loggedInUser"></div>
 
-
 	<div id="loggedInUserDiv" style="display:none">
 		<label for="userName">
 			<b>User Name</b>
@@ -83,15 +82,11 @@
 			<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed" data-fullscreen="false"></div>
 	</div>
 
-
-
-
-
-
 	<script type="text/javascript">
 		var header = '<div class="top-header"><div id="welcome">&nbsp;</div><div class="logout"><a href="#" onClick="logout()" ><img src="img/logout.png" style="width:20px; height:auto; margin-top:13px"></a></div><div style="clear:both"></div></div>';
 		$(".header").html(header);
 		var footer = '<div data-role="navbar"><ul><li><input type="button" value="Mark" data-icon="plus" onClick="markAttendanc()"> </li><li><input type="button" value="Pull" data-icon="arrow-d" onClick="pullData()"> </li><li><input type="button" value="Push" data-icon="arrow-u" onClick="pushAttendanceData()"> </li></ul></div>';
+		footer = '<div data-role="navbar"><ul><li><input type="button" value="Main Menu" data-icon="plus" onClick="login_success()"> </li></ul></div>';
 		$(".footer").html(footer);
 
 	</script>

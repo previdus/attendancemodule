@@ -19,6 +19,15 @@ function nullHandler(){
   // this is a call back method which does nothing.
 }
 
+function syncData(){
+  pullGroupAndStudentDataFromServer();
+  saveAllAttendance();
+}
+
+function login_success(){
+	loadPage("home.html");
+}
+
 function getUrls(type){
 	var str_api = 'http://websites.avyay.co.in/sms-demo/api/';
 

@@ -39,19 +39,19 @@ function loginIfUserAlreadyLoggedIn() {
 		transaction.executeSql('select * from m_loggedin_user limit 1;', [],
 		function(transaction, result) {
 			if (result != null && result.rows != null && result.rows.length == 1) {
-			   loadPage("index1.html");
+			   login_success();
 			}
 		},errorHandler);
 	},errorHandler,nullHandler);
 	return;
 }
 
-function loginOffline(userId, pwd) {
+function loginOffline(user_name, pwd) {
 	db.transaction(function(transaction) {
-		transaction.executeSql('select * from m_users where id = ? and pwd = ?;', [userId, pwd],
+		transaction.executeSql('select * from m_users where user_name = ? and pwd = ?;', [user_name, pwd],
 		function(transaction, result) {
 			if (result != null && result.rows != null && result.rows.length == 1) {
-			   loadPage("index1.html");
+			    login_success();
 			}else{
 				alert('Check your netowork connection!');
 			}
@@ -67,10 +67,8 @@ function insertLoginDetailsInDB(user_id, name, apiKey, userName, password){
 		transaction.executeSql('delete from m_loggedin_user',[],nullHandler,errorHandler);
 		transaction.executeSql('insert into m_users (id, name,user_name, pwd, api_key) values(?,?,?,?,?);',[user_id, name, userName, password, apiKey],nullHandler,errorHandler);
 		transaction.executeSql('insert into m_loggedin_user (id, name, api_key) values(?,?,?);',[user_id, name, apiKey],nullHandler,errorHandler);
-	}, errorHandler, login_success);
+	}, errorHandler, loadGroupAndStudentDataOnFirstLogin);
 }
 
-function login_success(){
-	loadPage("index1.html");
-}
+
 

@@ -1,15 +1,11 @@
 var randNum = Math.floor((Math.random() * 100000) + 1);
 $("#rand-num").html(randNum);
 
-
-
 $('form.login-form').submit(function(){
-     
 	var postData = $(this).serialize();
 	var userName = $('#username').val();
 	var password = $('#password').val();
 	var loginUrl = getUrls('login');
-	
 	$.ajax({
 		type: 'POST',
 		url: loginUrl,
@@ -17,7 +13,8 @@ $('form.login-form').submit(function(){
 		success: function(data){
 			var obj = JSON.parse(data);
 			if(obj.success){
-				insertLoginDetailsInDB(obj.user_id, obj.name, obj.apiKey, userName, password);
+				loginOffline(userName, password);
+				//insertLoginDetailsInDB(obj.user_id, obj.name, obj.apiKey, userName, password);
 			} else {
 				alert(obj.message);
 			}

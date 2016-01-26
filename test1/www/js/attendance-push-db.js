@@ -27,6 +27,18 @@ function displayAttendanceList(){
 
 }
 
+function showNoOfAttendanceYetToBeSentToServer(){
+ db.transaction(function(transaction) {
+   transaction.executeSql('select * from m_attendance attendance,m_loggedin_user loginusr  where loginusr.id  = attendance.user_id;', [],
+	 function(transaction, result) {
+      if (result != null && result.rows != null) {
+        		$('#noOfAttendanceToBeSentToServer').html('Attendance need to be updated: ' + result.rows.length);
+      }
+     },errorHandler);
+ },errorHandler,nullHandler);
+ return;
+}
+
 function saveAllAttendance(){
  db.transaction(function(transaction) {
    transaction.executeSql('select attendance.rowid as rowid,attendance.group_id as group_id, attendance.date as attDate,attendance.user_id as user_id,attendance.present_list as present_list , attendance.absent_list as absent_list, loginusr.api_key as api_key  from m_attendance attendance,m_loggedin_user loginusr  where loginusr.id  = attendance.user_id;', [],
@@ -39,10 +51,12 @@ function saveAllAttendance(){
         }		 
       }
      },errorHandler);
- },errorHandler,displayAttendanceList);
-
+ },errorHandler,allAttendanceSuccessfullySaved);
  return;
+}
 
+function allAttendanceSuccessfullySaved(){
+	alert('Attendance saved successfully');
 }
 
 function saveAttendanceOnServer(rowNo, group_id, user_id, attDate, present_list, absent_list, api_key){

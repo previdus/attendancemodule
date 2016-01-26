@@ -1,18 +1,17 @@
-function initDB(){	
+function initAttendancePage(){	
 	extractLoggedInUserData();
+	displayGroups();
 }
 
 function loadGroupAndStudentDataOnFirstLogin() {
 	db.transaction(function(transaction) {
-		transaction.executeSql('select * from m_groups where user_id = ? limit 1;', [$('#userId').val()],
+		transaction.executeSql('select * from m_groups grps, m_loggedin_user loginusr where grps.user_id = loginusr.id limit 1;', [],
 		function(transaction, result) {
 			if (result != null && result.rows != null && result.rows.length == 0) {
 			   pullGroupAndStudentDataFromServer();
-			}else{ 
-				displayGroups();
 			}
 		},errorHandler);
-	},errorHandler,displayGroups);
+	},errorHandler,login_success);
 	return;
 }
 
@@ -43,8 +42,12 @@ function saveGroupAndStudentData(dataObj, userId){
 		$.each(dataObj.students, function(idx, obj){
 			transaction.executeSql('insert into m_students(student_id, name, group_id) values(?,?,?);',[obj.student_id, obj.student_name,obj.group_id],nullHandler,errorHandler);
 			});		 
-   },errorHandler,nullHandler);
+   },errorHandler,pullDataComplete);
 return false;
+}
+
+function pullDataComplete(){
+	alert('Pull data is complete!');
 }
 
  
@@ -88,7 +91,7 @@ function extractLoggedInUserData() {
 	    logoutRedirect();
 	  }
      },errorHandler);
- },errorHandler,loadGroupAndStudentDataOnFirstLogin);
+ },errorHandler,nullHandler);
  return;
 }
 
@@ -114,14 +117,13 @@ function displayStudents(group_id){
       }
      },errorHandler);
  },errorHandler,nullHandler);
-
  return;
-
 }
 
 function attendanceSavedSuccessfully(){
    alert('Attendance Saved successfully');
-		pushAttendanceData();
+		saveAllAttendance();
+		markAttendanc();
 }
 
 function saveAttendance(group_id, userId, date, present_list,absent_list){

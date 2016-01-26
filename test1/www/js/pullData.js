@@ -23,7 +23,6 @@ function pullGroupAndStudentDataFromServer(){
 function selectedGroup(selected){
 	$('#selectedGrp').val(selected);
 	$.mobile.changePage( "#page2", { transition: "pop"});
-	//displayStudents(selected);
   }
 
 function ListGroups(){
@@ -40,7 +39,7 @@ function addAttendance(){
             $.each($("input[name='selectedStudent']:not(:checked)"), function(){            
                 nonPresentList.push($(this).val());
             });
-            //alert("Students absent are: " + nonPresentList.join(","));
+           // alert("Students absent are: " + nonPresentList.join(","));
 	var selectedGroup = $('#selectedGrp').val();
 	var date = $('#selectedDate').val();
 	var userId = $('#userId').val();
@@ -63,12 +62,12 @@ function markAttendanc(){
 }
 
 $("#page1").on('pageshow', function () {
-   initDB();
+   initAttendancePage();
 });
 
 $("#page2").on('pageshow', function () {
    var selected = $('#selectedGrp').val();
-   alert($('#nameOfUser').val());
+   //alert($('#nameOfUser').val());
    //$('#welcome').html();
 	displayStudents(selected);
 });
@@ -85,6 +84,10 @@ function init() {
 	document.addEventListener("deviceready", deviceReady, true);
 	//delete init;
 	//initDB();
+}
+
+function initHomePage(){
+   showNoOfAttendanceYetToBeSentToServer();
 }
 
 function deviceReady() {
