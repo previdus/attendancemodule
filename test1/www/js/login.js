@@ -13,8 +13,8 @@ $('form.login-form').submit(function(){
 		success: function(data){
 			var obj = JSON.parse(data);
 			if(obj.success){
-				loginOffline(userName, password);
-				//insertLoginDetailsInDB(obj.user_id, obj.name, obj.apiKey, userName, password);
+				//loginOffline(userName, password);
+				insertLoginDetailsInDB(obj.user_id, obj.name, obj.apiKey, userName, password);
 			} else {
 				alert(obj.message);
 			}
