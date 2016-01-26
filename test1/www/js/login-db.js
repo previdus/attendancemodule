@@ -51,10 +51,11 @@ function loginOffline(user_name, pwd) {
 		transaction.executeSql('select * from m_users where user_name = ? and pwd = ?;', [user_name, pwd],
 		function(transaction, result) {
 			if (result != null && result.rows != null && result.rows.length == 1) {
+			 alert('Login offline: ' + result.rows.length);
 			var row = result.rows.item(i);
 			 transaction.executeSql('delete from m_loggedin_user',[],nullHandler,errorHandler);
-			 transaction.executeSql('insert into m_loggedin_user (id, name, api_key) values(?,?,?);',[row.id, row.name, row.api_key],nullHandler,errorHandler);
-			    login_success();
+			 transaction.executeSql('insert into m_loggedin_user (id, name, api_key) values(?,?,?);',[row.id, row.name, row.api_key],nullHandler,login_success);
+			    
 			}else{
 				alert('Check your netowork connection!');
 			}
