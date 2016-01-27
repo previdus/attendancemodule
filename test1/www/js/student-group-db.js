@@ -11,7 +11,7 @@ function loadGroupAndStudentDataOnFirstLogin() {
 			   pullGroupAndStudentDataFromServer();
 			}
 		},errorHandler);
-	},errorHandler,login_success);
+	},errorHandler,nullHandler);
 	return;
 }
 
@@ -121,14 +121,12 @@ function displayStudents(group_id){
 }
 
 function attendanceSavedSuccessfully(){
-   alert('Attendance Saved successfully');
 		saveAllAttendance();
 		markAttendanc();
 }
 
 function saveAttendance(group_id, userId, date, present_list,absent_list){
-      alert(group_id + ' - ' + userId + ' - ' + date);
-	db.transaction(function(transaction) { 
+     	db.transaction(function(transaction) { 
 		transaction.executeSql('insert into m_attendance(group_id,user_id,date,present_list,absent_list) values(?,?,?,?,?);',[group_id, userId, date, present_list,absent_list],nullHandler,errorHandler);	 
    },errorHandler,attendanceSavedSuccessfully);
 return false;

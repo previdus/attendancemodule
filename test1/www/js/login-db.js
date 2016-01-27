@@ -73,7 +73,7 @@ function insertLoginDetailsInDB(user_id, name, apiKey, userName, password){
 		transaction.executeSql('delete from m_loggedin_user',[],nullHandler,errorHandler);
 		transaction.executeSql('insert into m_users (id, name,user_name, pwd, api_key) values(?,?,?,?,?);',[user_id, name, userName, password, apiKey],nullHandler,errorHandler);
 		transaction.executeSql('insert into m_loggedin_user (id, name, api_key) values(?,?,?);',[user_id, name, apiKey],nullHandler,errorHandler);
-	}, errorHandler, loadGroupAndStudentDataOnFirstLogin);
+	}, errorHandler, login_success);
 }
 
 

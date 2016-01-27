@@ -3,7 +3,6 @@ function pullGroupAndStudentDataFromServer(){
 	var apiKey = $('#apiKey').val();
 	var getData = "{api_key:'" + apiKey + "'}"; 
 	pullDataUrl = pullDataUrl + '?api_key=' + apiKey;
-	
 	$.ajax({
 		type: 'GET',
 		url: pullDataUrl,
@@ -87,6 +86,7 @@ function init() {
 }
 
 function initHomePage(){
+	loadGroupAndStudentDataOnFirstLogin();
    showNoOfAttendanceYetToBeSentToServer();
 }
 
