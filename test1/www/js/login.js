@@ -21,7 +21,7 @@ $('form.login-form').submit(function(){
 		},
 		error: function(){
 			alert('loginOffline');
-			//loginOffline(userName, password);
+			loginOffline(userName, password);
 			}
 		});
 	return false;
