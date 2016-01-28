@@ -1,4 +1,6 @@
+db = openDatabase(shortName, version, displayName,maxSize);
 function resetDB(){
+	db = openDatabase(shortName, version, displayName,maxSize);
 	db.transaction(function(tx){
 		tx.executeSql( 'drop TABLE m_users;',
 			[],nullHandler,errorHandler);
@@ -20,6 +22,7 @@ function resetSuccess(){
 }
 
 function initDB(){
+	db = openDatabase(shortName, version, displayName,maxSize);
 	db.transaction(function(tx){
 		tx.executeSql( 'CREATE TABLE IF NOT EXISTS m_users(id INTEGER NOT NULL PRIMARY KEY, name TEXT NOT NULL, user_name TEXT NOT NULL, pwd TEXT NOT NULL, api_key TEXT NOT NULL)',
 			[],nullHandler,errorHandler);
