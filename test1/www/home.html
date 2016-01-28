@@ -1,19 +1,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 	"http://www.w3.org/TR/html4/strict.dtd">
 <html>
-	<head>
-		<meta name="viewport" content="width=default-width; user-scalable=no" />
-		<meta http-equiv="Content-type" content="text/html;charset=utf-8">
-		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-	    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
-	    <link rel="stylesheet" type="text/css" href="css/reset.css" />
-		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
-	    <link rel="stylesheet" type="text/css" href="css/custom.css" />
-		<title>Login</title>
-			
-	</head>
+<head>
+	<meta name="viewport" content="width=default-width; user-scalable=no" />
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+	<title>Home</title>
+</head>
 
-<body onload="initHomePage()">
+<body>
 
 	<div id="loggedInUserDiv" style="display:none">
 		<label for="userName">
@@ -31,10 +30,10 @@
 		</label>	
 	</div>
 	
-<div data-role="page" id="page1">
+	<div data-role="page" id="page1">
 	
 		<div data-role="header" data-id="main-header" class="header" data-enhance="false" data-fullscreen="false"></div>
-		</br></br></br></br></br>
+
 		<div class="no-corner martop30">
 			<div class="cancel-btn">
 				<input type="button" value="Mark Attendance"  onClick="loadPage('index1.html')"> 
@@ -46,26 +45,22 @@
 		</div>
 			
 		
-			<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed" data-fullscreen="false"></div>
+		<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed" data-fullscreen="false"></div>
 	</div>
 
-	<script type="text/javascript">
+	<script type="text/javascript" src="js/student-group-db.js"></script>
+	<script type="text/javascript" src="js/pushData.js"></script>
+	<script type="text/javascript" src="js/attendance-push-db.js"></script>
+	<script type="text/javascript" src="js/pullData.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    	<script type="text/javascript">
 		var header = '<div class="top-header"><div id="welcome">&nbsp;</div><div class="logout"><a href="#" onClick="logout()" ><img src="img/logout.png" style="width:20px; height:auto; margin-top:13px"></a></div><div style="clear:both"></div></div>';
 		$(".header").html(header);
 		var footer = '<div data-role="navbar"></div>';
 		$(".footer").html(footer);
 
 	</script>
-	<script type="text/javascript" src="js/base.js"></script>
-	<script>
-        $(document).on('mobileinit', function () {
-            $.mobile.ignoreContentEnabled = true;
-        });
-    </script>
-    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-	<script type="text/javascript" src="js/pullData.js"></script>
-	<script type="text/javascript" src="js/student-group-db.js"></script>
-	<script type="text/javascript" src="js/pushData.js"></script>
-	<script type="text/javascript" src="js/attendance-push-db.js"></script>
+
 </body>
 </html> 

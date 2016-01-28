@@ -80,13 +80,8 @@ $("#page4").on('pageshow', function () {
 });
 	
 function init() {
-	document.addEventListener("deviceready", deviceReady, true);
-	//delete init;
-	//initDB();
-}
-
-function initHomePage(){
-	loadGroupAndStudentDataOnFirstLogin();
+   document.addEventListener("deviceready", deviceReady, true);
+   loadGroupAndStudentDataOnFirstLogin();
    showNoOfAttendanceYetToBeSentToServer();
 }
 

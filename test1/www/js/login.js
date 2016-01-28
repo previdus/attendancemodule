@@ -20,7 +20,8 @@ $('form.login-form').submit(function(){
 			}
 		},
 		error: function(){
-			loginOffline(userName, password);
+			alert('loginOffline');
+			//loginOffline(userName, password);
 			}
 		});
 	return false;
