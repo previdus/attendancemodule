@@ -19,10 +19,25 @@ function pullGroupAndStudentDataFromServer(){
 	return false;
 }
 
-function selectedGroup(selected){
+$(document).on('click','.group-list',function(e){
+	e.preventDefault();
+	var selected = $(this).attr("group-id");
 	$('#selectedGrp').val(selected);
+	$("#group_name").html($(this).html());
 	$.mobile.changePage( "#page2", { transition: "pop"});
-  }
+});
+
+$(document).on('click','.student-list',function(e){
+	e.preventDefault();
+	var st_li = $(this);
+	if(st_li.hasClass('present')){
+		st_li.removeClass('present').addClass('absent');
+		st_li.find('input').removeAttr('checked');
+	} else {
+		st_li.removeClass('absent').addClass('present');
+		st_li.find('input').attr('checked','');
+	}
+});
 
 function ListGroups(){
    displayGroups();

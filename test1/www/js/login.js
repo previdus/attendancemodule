@@ -20,7 +20,7 @@ $('form.login-form').submit(function(){
 			}
 		},
 		error: function(){
-			alert('loginOffline');
+			alert('Internet connection is not available. You will be logged in offline.');
 			loginOffline(userName, password);
 			}
 		});

@@ -9,6 +9,9 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
 	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <script type="text/javascript" src="js/desk-reset.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
 	<title>Home</title>
 </head>
 
@@ -35,17 +38,20 @@
 		<div data-role="header" data-id="main-header" class="header" data-enhance="false" data-fullscreen="false"></div>
 
 		<div class="no-corner martop30">
-			<div class="cancel-btn">
-				<input type="button" value="Mark Attendance"  onClick="loadPage('index1.html')"> 
+			<div class="" style="padding-top:50px">
+				<input type="button" value="Attendance"  onClick="loadPage('index1.html')"> 
 			</div>
-			<div class="cancel-btn">
+			<div class="no-corner">
 				<input type="submit" value="Sync Data" onClick="syncData()">
-			</div>			
-			<div  id="noOfAttendanceToBeSentToServer"></div>
+			</div>
+			<div  id="noOfAttendanceToBeSentToServer" style="text-align:center; color:#888">
+			</div>
 		</div>
 			
 		
-		<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed" data-fullscreen="false"></div>
+		<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed" data-fullscreen="false" >
+				
+		</div>
 	</div>
 
 	<script type="text/javascript" src="js/student-group-db.js"></script>
@@ -53,12 +59,9 @@
 	<script type="text/javascript" src="js/attendance-push-db.js"></script>
 	<script type="text/javascript" src="js/pullData.js"></script>
 	<script type="text/javascript" src="js/base.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
     	<script type="text/javascript">
-		var header = '<div class="top-header"><div id="welcome">&nbsp;</div><div class="logout"><a href="#" onClick="logout()" ><img src="img/logout.png" style="width:20px; height:auto; margin-top:13px"></a></div><div style="clear:both"></div></div>';
+		var header = '<div class="top-header"><div id="welcome" class="top_head">&nbsp;</div><div class="logout"><a href="#" onClick="logout()" ><img src="img/logout.png" style="width:20px; height:auto; margin-top:13px"></a></div><div style="clear:both"></div></div>';
 		$(".header").html(header);
-		var footer = '<div data-role="navbar"></div>';
-		$(".footer").html(footer);
 
 	</script>
 

@@ -146,7 +146,7 @@ a{
 	height: 46px;
 }
 
-div#welcome{
+div.top_head{
 	float: left;
 	padding: 15px 0;
 	text-shadow:none;
@@ -162,20 +162,39 @@ div#welcome{
 }
 h1.title{
 	text-align: center;
-	margin-bottom: 10px;
-	font-size: 2em;
+    margin-bottom: 10px;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: #269486;
+    text-shadow: none;
+    margin-top: 10px;
 }
 ul.gen-list{
 	list-style: none;
+	margin-top: 30px;
 }
 ul.gen-list li{
 	padding: 20px 10px;
 	text-transform: uppercase;
+	text-align: center;
 }
 ul.gen-list li a{
 	text-decoration: none;
 	display: block;
 }
-ul.gen-list li:nth-child(even){
+ul.gen-list li:nth-child(odd){
 	background: #EEE;
+}
+ul.gen-list li.present{
+	background: #42E242;
+    margin-bottom: 15px;
+    color: #FFF;
+    text-shadow:none;
+}
+ul.gen-list li.absent{
+	background: #E24B42;
+    margin-bottom: 15px;
+    color: #FFF;
+    text-shadow:none;
+    
 }

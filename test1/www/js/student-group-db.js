@@ -60,7 +60,7 @@ function displayGroups(){
       		var groupDataHtml = '<h1 class="title select-group">Select Group</h1><ul class="gen-list">';
       		for (var i = 0; i < result.rows.length; i++) {
 	           var row = result.rows.item(i);
-			   groupDataHtml = groupDataHtml + '<li><a href="#" onClick="selectedGroup('+ row.group_id +')"> ' + row.name + '</a></li>';
+			   groupDataHtml = groupDataHtml + '<li><a href="#" class="group-list" group-id="'+ row.group_id +'" > ' + row.name + '</a></li>';
 	        }
 			groupDataHtml = groupDataHtml + "</ul>";
       	} else {
@@ -97,22 +97,20 @@ function extractLoggedInUserData() {
 
 function displayStudents(group_id){
  db.transaction(function(transaction) {
-   var groupDataHtml = "<fieldset data-role='controlgroup'>";
-	groupDataHtml = groupDataHtml + " <legend>Student List:</legend>";
+   var groupDataHtml = '<h1 class="title select-group">Student List</h1><ul class="gen-list">';
 	
    transaction.executeSql('select * from m_students where group_id = ?;', [group_id],
      function(transaction, result) {
       if (result != null && result.rows != null) {
         for (var i = 0; i < result.rows.length; i++) {
            var row = result.rows.item(i);
-		   groupDataHtml = groupDataHtml + '<br><input type="checkbox" name="selectedStudent" id="' + row.student_id + '" value="'+ row.student_id+  '" checked>';
-		   groupDataHtml = groupDataHtml + '<label for="' + row.name + '">' + row.name + '</label>';
+		   groupDataHtml = groupDataHtml + '<li class="present student-list"><input type="checkbox" name="selectedStudent" id="' + row.student_id + '" value="'+ row.student_id+  '" checked style="display:block">' + row.name + '</li>';
            // $('#loggedInUser').append('<br>' + row.group_id + '. ' + row.name + ' ');
         }
-		groupDataHtml = groupDataHtml + "</fieldset>";
+		groupDataHtml = groupDataHtml + "</ul>";
 		groupDataHtml = groupDataHtml + "<input type='button' value='Add Attendance' onClick='addAttendance()'> <br>";
 		//$.mobile.changePage( "#page2", { transition: "pop"});
-		 $('#groupStudents').html('<br>' + groupDataHtml);
+		 $('#groupStudents').html(groupDataHtml);
 		 
       }
      },errorHandler);
