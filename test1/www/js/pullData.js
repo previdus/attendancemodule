@@ -35,7 +35,8 @@ $(document).on('click','.student-list',function(e){
 		st_li.find('input').removeAttr('checked');
 	} else {
 		st_li.removeClass('absent').addClass('present');
-		st_li.find('input').attr('checked','');
+		//st_li.find('input').attr('checked',true).;
+		st_li.find('input').prop('checked', true);
 	}
 });
 
