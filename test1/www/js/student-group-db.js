@@ -104,14 +104,14 @@ function displayStudents(group_id){
       if (result != null && result.rows != null) {
         for (var i = 0; i < result.rows.length; i++) {
            var row = result.rows.item(i);
-		   groupDataHtml = groupDataHtml + '<li class="present student-list"><input type="checkbox" name="selectedStudent" id="' + row.student_id + '" value="'+ row.student_id+  '" checked style="display:block">' + row.name + '</li>';
+		   groupDataHtml = groupDataHtml + '<li class="present student-list"><input type="checkbox" name="selectedStudent" id="' + row.student_id + '" value="'+ row.student_id+  '" checked style="display:none">' + row.name + '</li>';
            // $('#loggedInUser').append('<br>' + row.group_id + '. ' + row.name + ' ');
         }
 		groupDataHtml = groupDataHtml + "</ul>";
-		groupDataHtml = groupDataHtml + "<input type='button' value='Add Attendance' onClick='addAttendance()'> <br>";
+		//groupDataHtml = groupDataHtml + "<input type='button' value='Add Attendance' onClick='addAttendance()'> <br>";
 		//$.mobile.changePage( "#page2", { transition: "pop"});
 		 $('#groupStudents').html(groupDataHtml);
-		 
+
       }
      },errorHandler);
  },errorHandler,nullHandler);
@@ -124,6 +124,9 @@ function attendanceSavedSuccessfully(){
 }
 
 function saveAttendance(group_id, userId, date, present_list,absent_list){
+     
+	 alert(absent_list);
+	 alert(present_list);
      	db.transaction(function(transaction) { 
 		transaction.executeSql('insert into m_attendance(group_id,user_id,date,present_list,absent_list) values(?,?,?,?,?);',[group_id, userId, date, present_list,absent_list],nullHandler,errorHandler);	 
    },errorHandler,attendanceSavedSuccessfully);
