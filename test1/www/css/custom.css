@@ -198,3 +198,19 @@ ul.gen-list li.absent{
     text-shadow:none;
     
 }
+.ui-page-theme-a .ui-bar-inherit.footer{
+	background: transparent;
+	background: #177D71;
+	text-align: center;
+}
+.footer .ui-btn, .footer .ui-btn:hover, .footer .ui-btn:focus{
+	background: transparent;
+	text-shadow:none;
+	font-size: 16px;
+	color: #FFF !important;
+	outline: none;
+	border: 0;
+	box-shadow: none;
+	padding: 5px;
+	text-transform: uppercase ;
+}
