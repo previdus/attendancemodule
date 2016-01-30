@@ -53,5 +53,7 @@ return false;
 function logoutRedirect(){
 	loadPage('index.html');
 }
-
+function getHome(){
+	loadPage('home.html');
+}
 init();
