@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta name="viewport" content="width=default-width; user-scalable=no" />
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <script type="text/javascript" src="js/desk-reset.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<title>Home</title>
+</head>
+
+<body>
+
+	<div id="loggedInUserDiv" style="display:none">
+		<label for="userName">
+			<b>User Name</b>
+			<input type="userName" id="userName" name="userName" value="">
+			<input type="nameOfUser" id="nameOfUser" name="nameOfUser" value="">
+		</label>
+		<label for="userId">
+			<b>UserId</b>
+			<input type="userId" id="userId" name="userId" value="">
+		</label>
+		<label for="apiKey">
+			<b>API KEY</b>
+			<input type="apiKey" id="apiKey" name="apiKey" value="">
+		</label>	
+	</div>
+	
+	<div data-role="page" id="page1">
+	
+		<div data-role="header" data-id="main-header" class="header" data-enhance="false" data-fullscreen="false"><div class="top-header"><div id="welcome" class="top_head">&nbsp;</div><div class="logout"><a href="#" onClick="logout()" ><img src="img/logout.png" style="width:20px; height:auto; margin-top:13px"></a></div><div style="clear:both"></div></div></div>
+
+		<div class="no-corner martop30">
+			<div class="" style="padding-top:50px">
+				<input type="button" value="Attendance"  onClick="loadPage('index1.html')"> 
+			</div>
+			<div class="no-corner">
+				<input type="submit" value="Sync Data" onClick="syncData()">
+			</div>
+			<div  id="noOfAttendanceToBeSentToServer" style="text-align:center; color:#888">
+			</div>
+		</div>
+			
+		
+		<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed" data-fullscreen="false" >
+				
+		</div>
+	</div>
+
+	<script type="text/javascript" src="js/student-group-db.js"></script>
+	<script type="text/javascript" src="js/pushData.js"></script>
+	<script type="text/javascript" src="js/attendance-push-db.js"></script>
+	<script type="text/javascript" src="js/pullData.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+    	<script type="text/javascript">
+		// var header = '';
+		// $(".header").html(header);
+
+	</script>
+
+</body>
+</html> 

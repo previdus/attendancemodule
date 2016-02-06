@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+	"http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta name="viewport" content="width=default-width; user-scalable=no" />
+		<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+		<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+	    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+	    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+		
+	    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+		<script type="text/javascript" src="js/desk-reset.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+		<title>Attendance</title>
+			
+	</head>
+
+<body >
+	<span id="groups"></span>
+	<div id="loggedInUser"></div>
+
+	<div id="loggedInUserDiv" style="display:none">
+		<label for="userName">
+			<b>User Name</b>
+			<input type="userName" id="userName" name="userName" value="">
+			<input type="nameOfUser" id="nameOfUser" name="nameOfUser" value="">
+		</label>
+		<label for="userId">
+			<b>UserId</b>
+			<input type="userId" id="userId" name="userId" value="">
+		</label>
+		<label for="apiKey">
+			<b>API KEY</b>
+			<input type="apiKey" id="apiKey" name="apiKey" value="">
+		</label>	
+	</div>
+	<div id="dateDiv" style="display:none">
+		<label for="selectedDate">
+			<b>Selected Date</b>
+			<input type="selectedDate" id="selectedDate" name="selectedDate" value="12/11/2015">
+		</label>
+	</div>
+
+	<div data-role="page" id="page1">
+		<div data-role="header" data-id="main-header" class="header" data-enhance="false" data-position="fixed" >
+			<div class="top-header">
+				<div class="top_head">Take Attendance</div>
+				<div class="logout"><a href="javascript:;" onClick="getHome()"><img src="img/home.png" style="width:20px; height:auto; margin-top:13px"></a></div>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+
+		<div data-role="main" class="main-body" data-enhance="false">
+			<div id="coachGroups" class="data-div"></div>
+		</div>
+	</div>
+
+	<div data-role="page" id="page2" >
+		<div data-role="header" data-id="main-header" class="header" data-enhance="false" data-position="fixed" >
+			<div class="top-header" >
+				<div class="top_head" id="group_name"></div>
+				<div class="logout"><a href="javascript:;" onClick="getHome()"><img src="img/home.png" style="width:20px; height:auto; margin-top:13px"></a></div>
+				<div style="clear:both"></div>
+			</div>
+		</div>
+
+		<div data-role="main" class="main-body" data-enhance="false" >
+		<div style="display:none"><input type="text" id="selectedGrp" name="selectedGrp" ></div>
+			<div id="groupStudents" class="data-div">
+			   
+			</div>
+		</div>
+		<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed" data-tap-toggle="false" >
+			<a href="" onClick='addAttendance()'>Add Attendance</a>
+		</div>
+	</div>
+
+	<div data-role="page" id="page3">
+		<div data-role="header" data-id="main-header" class="header" data-enhance="false" data-fullscreen="false"></div>
+
+		<div data-role="main" class="main-body" data-enhance="false">
+			<h1>Push Data</h1>
+				<div id="attendanceList"></div>
+				<div id="attendanceData"></div>
+				
+		</div>
+			<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed" data-fullscreen="false"></div>
+	</div>
+	
+	<div data-role="page" id="page4">
+		<div data-role="header" data-id="main-header" class="header" data-enhance="false" data-fullscreen="false"></div>
+
+		<div data-role="main" class="main-body" data-enhance="false">
+			<div id="updateResult" class="data-div">
+			       
+			</div>
+		</div>
+			<div data-role="footer" data-id="main-footer" class="footer"  data-position="fixed" data-fullscreen="false"></div>
+	</div>
+
+	<script type="text/javascript">
+		// var header = '';
+		// $(".header").html(header);
+		// var footer = '<div data-role="navbar"><ul><li><input type="button" value="Mark" data-icon="plus" onClick="markAttendanc()"> </li><li><input type="button" value="Pull" data-icon="arrow-d" onClick="pullData()"> </li><li><input type="button" value="Push" data-icon="arrow-u" onClick="pushAttendanceData()"> </li></ul></div>';
+		// footer = '<div data-role="navbar"><ul><li><input type="button" value="Main Menu" data-icon="plus" onClick="login_success()"> </li></ul></div>';
+		// $(".footer").html(footer);
+
+	</script>
+	<script type="text/javascript" src="js/pullData.js"></script>
+	<script type="text/javascript" src="js/student-group-db.js"></script>
+	<script type="text/javascript" src="js/pushData.js"></script>
+	<script type="text/javascript" src="js/attendance-push-db.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+
+</body>
+</html> 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=default-width; user-scalable=no" />
+	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
+	<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+	<script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
+    <script type="text/javascript" src="js/desk-reset.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+
+	<title>Login</title>
+</head>
+<body>
+	<div data-role="page" class="login-body" id="pageone">
+		<div data-role="main" class="ui-content">
+			<div class="logo">
+				<img src="img/LogoImg.png">
+			</div>
+			<form class="login-form">
+				<div class="no-corner" >
+					<label for="username">Username</label>
+					<input type="text" id="username" name="username" value="coach1">
+				</div>
+				<div class="no-corner">
+					<label for="password">Password</label>
+					<input type="password" id="password" name="password" value="sample">
+				</div>
+				<div class="no-corner">
+					<input type="submit" value="Sign In">
+				</div>
+				<div class="reset-data">
+					Want to reset the data and have internet connection?
+					<a href="#pagetwo">Click Here</a>
+					<!-- <input type="button" value="Reset App" onClick="resetDB()"> -->
+				</div>
+			</form>
+		</div>
+	</div>
+	<div data-role="page" data-dialog="true" id="pagetwo">
+	  <div data-role="main" class="ui-content white-back">
+	  	<div id="rand-num"></div>
+	  	<form class="no-submit">
+	  		<div class="no-corner martop30">
+				<label for="randnum" class="cntr">Enter code</label>
+				<input type="text" id="randnum" name="randnum" value="">
+			</div>
+			<div class="no-corner red marLR0 marTB10">
+				<input type="button" value="Reset" onclick="UserResetDB()">
+			</div>
+			<div class="cancel-btn">
+				<a type="button" value="Cancel" href="#pageone">Cancel</a>
+			</div>
+	  	</form>
+	  </div>
+	</div>
+	<script type="text/javascript" src="js/login-db.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="js/base.js"></script>
+</body>
+</html>

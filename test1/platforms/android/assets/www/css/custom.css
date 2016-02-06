@@ -1,0 +1,216 @@
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500);*/
+body, .ui-btn{
+	background: #FFF;
+	font-family: 'Roboto', sans-serif !important;
+	font-weight: 300;
+}
+.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit{
+	text-shadow:none;
+	font-weight: 400;
+}
+.login-body{
+	background: #FFF;
+	color: #000;
+	
+	text-shadow: none;
+}
+.login-body .ui-content{
+	/*padding: 0;*/
+}
+.no-corner .ui-corner-all {
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+.logo{
+	max-width: 200px;
+	text-align: center;
+	margin: 30px auto
+}
+.logo img{
+	width: 100%;
+	height: auto;
+}
+.login-form{
+	margin-top: 4em;
+}
+.no-corner .ui-input-text, .ui-input-search{
+	margin: 0;
+}
+.no-corner .ui-shadow-inset{
+	-webkit-box-shadow: none; 
+    -moz-box-shadow: none;
+     box-shadow: none;
+     border:0;
+     padding: 0.2em 0;
+	border-bottom: 1px solid #999;
+	margin-bottom: 1em;
+
+}
+.no-corner .ui-btn, .no-corner .ui-btn:hover{
+	margin: 50px;
+    background: #50d2c2;
+    color: #fff;
+    font-weight: 300;
+    text-shadow: none;
+    border: 0;
+    padding: 1em 1em;
+}
+.no-corner.red .ui-btn, .no-corner.red .ui-btn:hover{
+	background: #F00;
+}
+.no-corner.default .ui-btn, .no-corner.default .ui-btn:hover{
+	background: #888;
+}
+.cancel-btn{
+	background: #888;
+	text-align: center;
+	margin-top: 10px;
+	color: #FFF;
+	text-shadow:none;
+}
+.cancel-btn a{
+	padding: 20px 0;
+	display: block;
+	text-decoration: none;
+}
+.no-corner.marLR0 .ui-btn{
+	margin-right: 0;
+	margin-left: 0;
+}
+.no-corner.marTB10 .ui-btn{
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+.no-corner label{
+	color: #999;
+	font-size: 0.8em;
+}
+.no-corner .ui-input-text input{
+	padding: .4em 0;
+}
+.no-corner .ui-btn:focus, .no-corner .ui-focus{
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+}
+
+.reset-data{
+	color: #AAA;
+	text-align: center;
+}
+a{
+	color: inherit !important;
+	    font-weight: inherit !important;
+}
+#rand-num{
+	font-size: 50px;
+    color: #50d2c2;
+    text-align: center;
+    font-weight: 500;
+}
+.ui-page, .ui-content.white-back{
+	background: #FFF;
+}
+.martop30{
+	margin-top: 30px;
+}
+.martop50{
+	margin-top: 50px;
+}
+.cntr{
+	text-align: center;
+}
+.reset-btn{
+	padding: 20px 40px;
+	background: #f00 !important;
+}
+.ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited{
+	text-shadow:none;
+	border: none;
+	color: #FFF;
+}
+.header{
+	background-color: #50d2c2;
+	color: #FFF;
+	    font-weight: 500;
+	    padding-top: 3px;
+	    padding-bottom: 3px;
+	    position: fixed;
+	    width: 100%;
+	z-index: 999;
+
+}
+.header .top-header{
+		padding-right: 10px;
+	padding-left: 10px;
+	height: 46px;
+}
+
+div.top_head{
+	float: left;
+	padding: 15px 0;
+	text-shadow:none;
+	text-transform: uppercase;
+	display: inline-block;
+}
+.logout{
+	float: right;
+}
+.main-body{
+	margin-top: 46px;
+	padding: 20px 10px;
+}
+h1.title{
+	text-align: center;
+    margin-bottom: 10px;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: #269486;
+    text-shadow: none;
+    margin-top: 10px;
+}
+ul.gen-list{
+	list-style: none;
+	margin-top: 30px;
+}
+ul.gen-list li{
+	padding: 20px 10px;
+	text-transform: uppercase;
+	text-align: center;
+}
+ul.gen-list li a{
+	text-decoration: none;
+	display: block;
+}
+ul.gen-list li:nth-child(odd){
+	background: #EEE;
+}
+ul.gen-list li.present{
+	background: #42E242;
+    margin-bottom: 15px;
+    color: #FFF;
+    text-shadow:none;
+}
+ul.gen-list li.absent{
+	background: #E24B42;
+    margin-bottom: 15px;
+    color: #FFF;
+    text-shadow:none;
+    
+}
+.ui-page-theme-a .ui-bar-inherit.footer{
+	background: transparent;
+	background: #177D71;
+	text-align: center;
+}
+.footer .ui-btn, .footer .ui-btn:hover, .footer .ui-btn:focus{
+	background: transparent;
+	text-shadow:none;
+	font-size: 16px;
+	color: #FFF !important;
+	outline: none;
+	border: 0;
+	box-shadow: none;
+	padding: 5px;
+	text-transform: uppercase ;
+}
